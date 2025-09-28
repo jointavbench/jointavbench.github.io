@@ -8,20 +8,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>JointAVBench: A Benchmark for Joint Audio-Visual Reasoning Evaluation</title>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-PYVRSFMDRL');
-  </script>
-
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
 
@@ -56,7 +42,7 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2011.12948"
+                <a href="./static/docs/JointAVBench.pdf"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -100,23 +86,24 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Compared to vision or audio large language models (LLMs), the key advantage of omni large language model, 
-            lies in their joint audio-visual reasoning capability. To train such models, datasets with questions requiring 
-            both visual and auditory information to answer are needed to build video understanding models. 
-            Moreover, videos contain complex audio signal types and scenes, interleaved with each other, 
-            demanding models with various cognitive capabilities. 
-            However, current datasets lack challenging multi-scene tasks, 
-            various types of audio information and cognition abilities. 
-          </p>
-          <p>
-            This paper introduces a dataset, called <span class="dnerf">JointAVBench</span>, 
-            designed to answer questions that necessitate AV integration, spanning 5 cognitive dimensions, 
-            4 audio information types (speech, sound events, music, vocal traits), and 3 scene spans (single-, cross-, and full-scene). 
-            As manually crafting such questions is expensive and time-consuming, we propose leveraging state-of-the-art vision-LLMs, 
-            audio-LLMs and LLMs to automatically synthesize questions and answers that strictly require joint reasoning between visual and audio. 
-            Based on our JointAVBench dataset, we evaluate leading vision, audio, and omni LLMs. 
-            Results indicate that the top omni-LLM outperforms the top vision or audio LLMs but achieves only 56.2% average accuracy, 
-            highlighting significant room for improvement, particularly in cross-scene reasoning.
+            Understanding videos inherently requires reasoning over both visual and auditory
+            information. To properly evaluate Omni-Large Language Models (Omni-LLMs),
+            which are capable of processing multi-modal information including vision and
+            audio, an effective benchmark must comprehensively cover three key aspects: (1)
+            multi-modal dependency (i.e., questions that cannot be answered using vision or
+            audio alone), (2) diverse audio information types (e.g., speech, sound events), and
+            (3) varying scene spans. However, existing datasets fall short in one or more of
+            these dimensions, limiting strict and comprehensive evaluation. To address this gap,
+            we introduce <span class="dnerf">JointAVBench</span>, a novel benchmark with strict audio-video correlation,
+            spanning five cognitive dimensions, four audio information types (speech, sound
+            events, music, vocal traits), and three scene spans (single-, cross-, and full-scene).
+            Given the high cost of manual annotation, we propose an automated pipeline
+            that leverages state-of-the-art vision-LLMs, audio-LLMs, and general-purpose
+            LLMs to synthesize questions and answers that strictly require joint audio-visual
+            understanding. We evaluate leading vision-only, audio-only, and Omni-LLMs
+            on our dataset. Results show that even the best-performing Omni-LLM achieves
+            only 56.2% average accuracy, outperforming uni-modal baselines but revealing
+            substantial room for improvement, especially in cross-scene reasoning.
           </p>
         </div>
       </div>
@@ -132,28 +119,19 @@
     <!-- Animation. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Performance</h2>
-
+        <h2 class="title is-3">Overall Performance</h2>
+          <!-- 展示一张图片的示例代码 -->
+          <figure class="content has-text-centered">
+            <img src="static/images/performance.png">
+          </figure>
         <!-- Interpolating. -->
-        <h3 class="title is-4">Interpolating states</h3>
-        <div class="content has-text-justified">
-          <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
-          </p>
-        </div>
-        <br/>
-        <!--/ Interpolating. -->
-
-        <!-- Re-rendering. -->
-        <h3 class="title is-4">Re-rendering the input video</h3>
-        <div class="content has-text-justified">
-          <p>
-            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
-            viewpoint such as a stabilized camera by playing back the training deformations.
-          </p>
-        </div>
+        <h2 class="title is-3">Breakdown Performance</h2>
+          <figure class="content has-text-centered">
+            <img src="static/images/breakdown1.png">
+          </figure>
+          <figure class="content has-text-centered">
+            <img src="static/images/breakdown2.png">
+          </figure>
         <!--/ Re-rendering. -->
 
       </div>
@@ -168,7 +146,7 @@
   <div class="container">
     <div class="content has-text-centered">
       <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
+         href="./static/docs/JointAVBench.pdf">
         <i class="fas fa-file-pdf"></i>
       </a>
       <a class="icon-link" href="https://github.com/jointavbench" class="external-link" disabled>
@@ -178,6 +156,9 @@
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="content">
+          <p>
+            Website template is borrowed from <a href="https://nerfies.github.io/">Nerfies</a>.
+          </p>
           <p>
             This website is licensed under a <a rel="license"
                                                 href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
