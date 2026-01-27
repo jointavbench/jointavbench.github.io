@@ -35,19 +35,45 @@
           <h1 class="title is-1 publication-title">JointAVBench: A Benchmark for Joint Audio-Visual Reasoning Evaluation</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              Anonymous authors</span>
+              <a>Jianghan Chao</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a>Jianzhang Gao</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a>Wenhui Tan</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a>Yuchong Sun</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a>Ruihua Song</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a>Liyun Ru</a><sup>2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Renmin University of China</span>
+            <span class="author-block"><sup>2</sup>Baichuan Inc.</span>
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="./static/docs/JointAVBench.pdf"
+                <a href="https://arxiv.org/pdf/2512.12772"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                   </span>
                   <span>Paper</span>
+                </a>
+              </span>
+              <!-- arXiv Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2512.12772"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
                 </a>
               </span>
               <!-- Code Link. -->
@@ -86,41 +112,58 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Understanding videos inherently requires reasoning over both visual and auditory
-            information. To properly evaluate Omni-Large Language Models (Omni-LLMs),
-            which are capable of processing multi-modal information including vision and
-            audio, an effective benchmark must comprehensively cover three key aspects: (1)
-            multi-modal dependency (i.e., questions that cannot be answered using vision or
-            audio alone), (2) diverse audio information types (e.g., speech, sound events), and
-            (3) varying scene spans. However, existing datasets fall short in one or more of
-            these dimensions, limiting strict and comprehensive evaluation. To address this gap,
-            we introduce <span class="dnerf">JointAVBench</span>, a novel benchmark with strict audio-video correlation,
-            spanning five cognitive dimensions, four audio information types (speech, sound
-            events, music, vocal traits), and three scene spans (single-, cross-, and full-scene).
-            Given the high cost of manual annotation, we propose an automated pipeline
-            that leverages state-of-the-art vision-LLMs, audio-LLMs, and general-purpose
-            LLMs to synthesize questions and answers that strictly require joint audio-visual
-            understanding. We evaluate leading vision-only, audio-only, and Omni-LLMs
-            on our dataset. Results show that even the best-performing Omni-LLM achieves
-            only 56.2% average accuracy, outperforming uni-modal baselines but revealing
-            substantial room for improvement, especially in cross-scene reasoning.
+            Compared to vision or audio large language models (LLMs), the key advantage of omni large language model lies in their joint audio-visual reasoning capability. To train such models, datasets with questions requiring both visual and auditory information to answer are needed. Moreover, videos contain complex audio signal types and scenes, interleaved with each other, demanding models with various cognitive capabilities. However, current datasets lack challenging multi-scene tasks, various types of audio information and cognition abilities.
+          </p>
+          <p>
+            This paper introduces <span class="dnerf">JointAVBench</span>, a dataset designed to answer questions that necessitate AV integration, spanning 5 cognitive dimensions, 4 audio information types, and 3 scene spans. Our benchmark reveals that the top omni-LLM achieves only 56.2% average accuracy, highlighting significant room for improvement, particularly in cross-scene reasoning.
           </p>
         </div>
       </div>
     </div>
     <!--/ Abstract. -->
+
+    <!-- Key Features. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Key Features</h2>
+        <div class="content has-text-left">
+          <ul>
+            <li><strong>Large-scale Benchmark</strong>: 2,853 questions across 15 diverse task types</li>
+            <li><strong>Automated Generation Pipeline</strong>: State-of-the-art vision-LLMs, audio-LLMs, and LLMs automatically synthesize questions requiring joint audio-visual reasoning</li>
+            <li><strong>Multi-dimensional Coverage</strong>:
+              <ul>
+                <li><strong>5 cognitive dimensions</strong>: Temporal, Spatial, Long-form, Emotional, and Plot understanding</li>
+                <li><strong>4 audio information types</strong>: Speech, Sound events, Music, and Speech emotion</li>
+                <li><strong>3 scene spans</strong>: Single-scene, Multi-scene, and Full-scene reasoning</li>
+              </ul>
+            </li>
+            <li><strong>Comprehensive Evaluation</strong>: Evaluation suite for majority mainstream omni-modal models</li>
+            <li><strong>Challenging Tasks</strong>: Multi-scene tasks requiring complex cross-modal reasoning</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--/ Key Features. -->
   </div>
 </section>
 
 <section class="section">
   <div class="container is-max-desktop">
-    <div class="columns is-centered"> 
-    <h2 class="title is-3">Data Generation</h2>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Data Generation Pipeline</h2>
+        <div class="content has-text-justified">
+          <p>
+            Our automated benchmark generation pipeline leverages state-of-the-art vision-LLMs, audio-LLMs, and general-purpose LLMs to synthesize questions and answers that strictly require joint audio-visual understanding. The pipeline consists of several stages that ensure high-quality benchmark questions with strict audio-video correlation.
+          </p>
+        </div>
+      </div>
     </div>
     <div class="columns is-centered">
       <div class="column is-four-fifths">
           <figure class="content has-text-centered">
-            <img src="static/images/pipeline.png">
+            <img src="static/images/pipeline.png" alt="JointAVBench data generation pipeline">
+            <figcaption><em>Complete pipeline for automated benchmark generation from raw videos</em></figcaption>
           </figure>
       </div>
     </div>
@@ -129,14 +172,24 @@
   </div>
 </section>
 
-<section class="section"> 
+<section class="section">
 <div class = "container is-max-desktop">
-  <div class="columns is-centered"> 
-    <h2 class="title is-3">Benchmark Statistics</h2>
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <h2 class="title is-3">Benchmark Statistics</h2>
+      <div class="content has-text-justified">
+        <p>
+          JointAVBench consists of <strong>2,853 questions</strong> across <strong>15 distinct tasks</strong> spanning multiple dimensions. The benchmark covers diverse cognitive dimensions, audio information types, and scene spans to provide comprehensive evaluation of omni-modal models.
+        </p>
+      </div>
+    </div>
   </div>
-  <div class="columns is-centered"> 
+  <div class="columns is-centered">
     <div class = "column is-four-fifths">
-      <img src="static/images/statistics.png">
+      <figure class="content has-text-centered">
+        <img src="static/images/statistics.png" alt="JointAVBench statistics breakdown">
+        <figcaption><em>Distribution of questions across cognitive dimensions, audio types, and scene spans</em></figcaption>
+      </figure>
     </div>
   </div>
 
@@ -145,26 +198,86 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <div class="columns is-centered"> 
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Dataset</h2>
+        <div class="content has-text-justified">
+          <p>
+            The JointAVBench dataset is available on <a href="https://huggingface.co/datasets/JointAVBench/JointAVBench">Hugging Face</a>. The benchmark file <code>jointavbench.json</code> contains all 2,853 questions with metadata. Please note that due to content restrictions, we cannot share the raw videos. However, we provide a URL to the original YouTube video for each question.
+          </p>
+          <h3 class="title is-5">Download the Benchmark</h3>
+          <pre><code># Download benchmark questions and videos
+pip install huggingface_hub
+huggingface-cli download JointAVBench/JointAVBench --local-dir ./data</code></pre>
+
+          <h3 class="title is-5">Data Format</h3>
+          <p>Each question in the benchmark follows this format:</p>
+          <pre style="text-align: left;"><code>{
+  "qid": "-CEDoGn0w1s_task1_0",
+  "video_name": "-CEDoGn0w1s",
+  "task": "STL",
+  "question": "Which objects are mentioned only in the dialogue...",
+  "correct_answer": "The broom, mentioned at around 6.34s",
+  "explanation": "The object \"broom\" is mentioned...",
+  "options": [...],
+  "video_url": "https://www.youtube.com/watch?v=-CEDoGn0w1s",
+  "segment_timestamp": [653.444, 699.657]
+}</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
     <h2 class="title is-3">Performance</h2>
     </div>
     <!-- Animation. -->
     <div class="columns is-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-4">Overall Performance</h2>
-          <!-- 展示一张图片的示例代码 -->
           <figure class="content has-text-centered">
-            <img src="static/images/performance.png">
+            <img src="static/images/performance.png" alt="Overall model performance comparison">
+            <figcaption><em>Performance comparison of different omni-modal models on JointAVBench</em></figcaption>
           </figure>
         <!-- Interpolating. -->
         <h2 class="title is-4">Breakdown Performance</h2>
-            <img src="static/images/breakdown1.png">
+          <figure class="content has-text-centered">
+            <img src="static/images/breakdown1.png" alt="Performance breakdown by dimensions">
+            <figcaption><em>Model performance across different cognitive dimensions and audio types</em></figcaption>
+          </figure>
           <div class="columns is-centered">
-            <div class="column is-7"> 
-              <img src="static/images/breakdown2.png">
+            <div class="column is-7">
+              <figure class="content has-text-centered">
+                <img src="static/images/breakdown2.png" alt="Performance breakdown by scene span">
+                <figcaption><em>Performance comparison across different scene spans</em></figcaption>
+              </figure>
             </div>
           </div>
         <!--/ Re-rendering. -->
+
+        <!-- Key Findings. -->
+        <h2 class="title is-4">Key Findings</h2>
+        <div class="content has-text-left">
+          <ul>
+            <li><strong>Multi-modal Reasoning is Hard</strong>: Even top models struggle to integrate audio-visual information effectively</li>
+            <li><strong>Scene Complexity Matters</strong>: Performance degrades significantly for multi-scene and full-video tasks</li>
+            <li><strong>Audio Type Dependency</strong>: Models perform differently on speech vs. music vs. sound events</li>
+            <li><strong>Cognitive Dimension Gaps</strong>: Temporal and spatial reasoning show better results than plot understanding</li>
+          </ul>
+          <p>
+            Our benchmark reveals significant challenges for current omni-modal models:
+          </p>
+          <ul>
+            <li><strong>Top Performance</strong>: 56.2% average accuracy</li>
+            <li><strong>Cross-scene Reasoning</strong>: Particularly challenging (42-50% accuracy)</li>
+            <li><strong>Single-scene Tasks</strong>: Relatively better (68% accuracy)</li>
+            <li><strong>Performance Gaps</strong>: Significant variations across cognitive dimensions and audio types</li>
+          </ul>
+        </div>
+        <!--/ Key Findings. -->
 
       </div>
     </div>
@@ -173,15 +286,51 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Citation</h2>
+        <div class="content has-text-left">
+          <p>If you find JointAVBench useful for your research, please cite our paper:</p>
+          <pre style="text-align: left;"><code>@article{chao2025jointavbench,
+  title={JointAVBench: A Benchmark for Joint Audio-Visual Reasoning Evaluation},
+  author={Chao, Jianghan and Gao, Jianzhang and Tan, Wenhui and Sun, Yuchong and Song, Ruihua and Ru, Liyun},
+  journal={arXiv preprint arXiv:2512.12772},
+  year={2025}
+}</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Contact</h2>
+        <div class="content">
+          <p>For questions and feedback:</p>
+          <ul style="list-style: none; padding: 0;">
+            <li><strong>Project Page</strong>: <a href="https://jointavbench.github.io">https://jointavbench.github.io</a></li>
+            <li><strong>GitHub</strong>: <a href="https://github.com/jointavbench/JointAVBench">https://github.com/jointavbench/JointAVBench</a></li>
+            <li><strong>Email</strong>: chaojh@ruc.edu.cn</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
       <a class="icon-link"
-         href="./static/docs/JointAVBench.pdf">
+         href="https://arxiv.org/pdf/2512.12772">
         <i class="fas fa-file-pdf"></i>
       </a>
-      <a class="icon-link" href="https://github.com/jointavbench" class="external-link" disabled>
+      <a class="icon-link" href="https://github.com/jointavbench/JointAVBench" class="external-link">
         <i class="fab fa-github"></i>
       </a>
     </div>
